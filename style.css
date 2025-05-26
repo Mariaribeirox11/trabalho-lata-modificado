@@ -1,0 +1,245 @@
+/* Importando fonte personalizada do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Uloopet:wght@100..400&display=swap');
+
+/* Reset global e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclui padding e borda na largura/altura total */
+    font-family: "Playwrite DK Uloopet", cursive; /* Definindo fonte padrão */
+    font-optical-sizing: auto; /* Permite otimização de exibição da fonte */
+}
+
+/* Estilos da barra de navegação */
+nav {
+    display: flex;
+    padding: 2% 6%; /* Padding responsivo usando porcentagens */
+    position: relative;
+    justify-content: space-between; /* Espaço entre logo e itens de navegação */
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    z-index: 100; /* Garante que o nav fique acima de outros elementos */
+}
+
+/* Estilo do logo */
+.logo {
+    width: 15%; /* Largura responsiva */
+}
+
+/* Container da lista de navegação */
+.list {
+    flex: 1; /* Ocupa o espaço restante no container flex */
+    text-align: right; /* Alinha itens do menu à direita */
+}
+
+/* Itens individuais de navegação */
+.list ul li {
+    position: relative;
+    list-style: none; /* Remove marcadores padrão */
+    padding: 8px 12px;
+    display: inline-block; /* Exibe itens horizontalmente */
+    transition: 500ms ease; /* Transição suave para efeitos hover */
+    text-transform: uppercase; /* Converte texto para maiúsculas */
+    cursor: pointer; /* Muda cursor para pointer ao passar mouse */
+}
+
+/* Estilos dos links de navegação */
+.list ul li a {
+    color: #333;
+    text-decoration: none; /* Remove sublinhado */
+    transition: 0.5s; /* Transição suave de cor */
+}
+
+/* Estilo do link ativo */
+.active {
+    color: #ff0544 !important; /* Cor rosa/vermelho brilhante para link ativo */
+}
+
+/* Efeitos hover para navegação */
+ul:hover li {
+    filter: blur(5px); /* Desfoca todos os itens ao passar mouse no menu */
+}
+
+ul li:hover {
+    filter: blur(0); /* Remove desfoque no item selecionado */
+    transform: scale(1.10); /* Aumenta ligeiramente o item */
+    /* Efeito de texto com gradiente */
+    background: linear-gradient(90deg, #05fff2, #f701b2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Seção de texto do conteúdo principal */
+.text {
+    position: relative;
+    z-index: 1; /* Garante que o texto fique acima de elementos de fundo */
+    max-width: 600px; /* Limita largura para melhor legibilidade */
+    padding: 20px 60px; /* Espaçamento ao redor do texto */
+}
+
+/* Estilos do cabeçalho principal */
+.text h2 {
+    font-size: 50px;
+    /* Animação que desliza o cabeçalho de cima para baixo */
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s; /* Atraso no início da animação */
+}
+
+/* Span de destaque no cabeçalho */
+.text span {
+    color: #05fff2; /* Cor ciano brilhante */
+    font-weight: 900; /* Extra negrito */
+}
+
+/* Estilo de parágrafo */
+.text p {
+    padding: 15px 0; /* Espaçamento vertical */
+}
+
+/* Estilo do botão */
+.btn {
+    padding: 15px 35px;
+    /* Fundo com gradiente de rosa para ciano */
+    background: linear-gradient(#f701b2, #05fff2);
+    color: #fff;
+    border: 0;
+    border-radius: 20px; /* Cantos arredondados */
+    cursor: pointer;
+    transition: 0.5s; /* Transição suave ao passar mouse */
+}
+
+/* Efeito hover do botão */
+.btn:hover {
+    letter-spacing: 5px; /* Aumenta espaçamento entre letras */
+}
+
+/* Círculo decorativo no fundo */
+.circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente combinando com o botão */
+    background: linear-gradient(#f701b2, #05fff2);
+    /* Círculo posicionado à direita */
+    clip-path: circle(600px at right 800px);
+    z-index: -1; /* Fica atrás do conteúdo */
+}
+
+/* Estilo da imagem */
+.img {
+    position: absolute;
+    right: 10%;
+    top: 100px;
+    width: 22%;
+    max-width: 250px; /* Limita tamanho máximo */
+    z-index: 2; /* Fica acima do fundo mas abaixo do texto */
+    cursor: pointer;
+    /* Animações combinadas - zoom e efeito flutuante */
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2s, 3s; /* Tempos de início escalonados */
+}
+
+/* Animação para elementos deslizando de cima */
+@keyframes slideBottom {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animação para efeito flutuante */
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-24px); /* Move para cima */
+    }
+    100% {
+        transform: translateY(0); /* Retorna à posição original */
+    }
+}
+
+/* Animação para efeito de zoom */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0); /* Começa invisível e pequeno */
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1); /* Cresce para tamanho normal */
+        opacity: 1;
+    }
+}
+
+/* Estilos responsivos para tablets e dispositivos menores */
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 5%; /* Padding maior para telas pequenas */
+    }
+    
+    .logo {
+        width: 30%; /* Logo maior para melhor visibilidade */
+    }
+    
+    /* Empilha itens de navegação verticalmente */
+    .list ul li {
+        display: block;
+        text-align: center;
+        padding: 10px 0;
+    }
+    
+    /* Ajusta posicionamento da imagem para mobile */
+    .img {
+        position: relative;
+        width: 50%;
+        max-width: 200px;
+        margin: 20px auto; /* Centraliza a imagem */
+        right: auto;
+        top: auto;
+        display: block;
+    }
+    
+    /* Ajusta posição do círculo de fundo */
+    .circle {
+        clip-path: circle(300px at center bottom); /* Círculo menor centralizado na base */
+    }
+    
+    /* Centraliza texto e ajusta padding */
+    .text {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    /* Reduz tamanho do cabeçalho */
+    .text h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Estilos responsivos adicionais para telas muito pequenas */
+@media screen and (min-width: 350px) {
+    .container {
+        gap: 5px;
+        display: flex;
+        flex-wrap: wrap-reverse; /* Permite que itens quebrem em ordem reversa */
+        justify-content: center;
+    }
+}
+
+/* Estilos responsivos para telas médias */
+@media screen and (min-width: 808px) {
+    .container {
+        gap: 10px; /* Aumenta espaço entre itens */
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+    }
+}
